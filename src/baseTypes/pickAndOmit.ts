@@ -102,7 +102,7 @@ type APIResponse = {
   title: string;
   author: string;
   pageCount: number;
-  date: string;
+  date: Date;
 };
 
 const bookDetails: APIResponse = {
@@ -110,7 +110,7 @@ const bookDetails: APIResponse = {
   title: "Harry Potter",
   author: "joanne rowling",
   pageCount: 523,
-  date: Date(),
+  date: new Date(),
 };
 
 function getBookInfo(book: APIResponse): Omit<APIResponse, "date"> {
