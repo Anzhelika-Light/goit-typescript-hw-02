@@ -3,21 +3,24 @@
   Ваше завдання – використовувати Pick та generics для вказівки, що поля цих об'єктів належать AllType.
   Функція compare повинна повертати AllType.
 */
-
+// Як правильно: як в top чи як в bottom???
 type AllType = {
   name: string;
   position: number;
   color: string;
-  weight: number
-}
+  weight: number;
+};
 
-function compare (top, bottom): AllType {
+function compare<T extends AllType>(
+  top: Pick<T, "name" | "color">,
+  bottom: Pick<T, keyof AllType>
+): AllType {
   return {
     name: top.name,
     color: top.color,
     position: bottom.position,
     weight: bottom.weight,
-  }
+  };
 }
 
 export {};
